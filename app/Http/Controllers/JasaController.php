@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\KantorCabang;
-use App\Http\Requests\StoreKantorCabangRequest;
-use App\Http\Requests\UpdateKantorCabangRequest;
+use App\Models\Jasa;
+use App\Http\Requests\StoreJasaRequest;
+use App\Http\Requests\UpdateJasaRequest;
 
-class KantorCabangController extends Controller
+class JasaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -27,7 +27,7 @@ class KantorCabangController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreKantorCabangRequest $request)
+    public function store(StoreJasaRequest $request)
     {
         //
     }
@@ -35,7 +35,7 @@ class KantorCabangController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(KantorCabang $kantorCabang)
+    public function show(Jasa $jasa)
     {
         //
     }
@@ -43,7 +43,7 @@ class KantorCabangController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(KantorCabang $kantorCabang)
+    public function edit(Jasa $jasa)
     {
         //
     }
@@ -51,7 +51,7 @@ class KantorCabangController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateKantorCabangRequest $request, KantorCabang $kantorCabang)
+    public function update(UpdateJasaRequest $request, Jasa $jasa)
     {
         //
     }
@@ -59,7 +59,7 @@ class KantorCabangController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(KantorCabang $kantorCabang)
+    public function destroy(Jasa $jasa)
     {
         //
     }

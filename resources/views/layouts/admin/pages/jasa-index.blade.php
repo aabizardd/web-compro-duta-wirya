@@ -22,7 +22,7 @@
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <div>
                         <i class="fas fa-table me-1"></i>
-                        Data Kantor Cabang
+                        Data Jasa
                     </div>
 
                     <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="tambah_data_baru">
@@ -38,27 +38,24 @@
                     <table id="datatablesSimple">
                         <thead>
                             <tr>
-                                <th>Nama Kantor</th>
-                                <th>Nama Pimpinan</th>
-                                <th>Alamat Kantor</th>
+                                <th>Jasa</th>
                                 <th>Aksi</th>
                                 
                             </tr>
                         </thead>
                        
                         <tbody>
-                            @foreach ($cabang as $item)
+                            @foreach ($jasa as $item)
                                 
                             
                             <tr>
-                                <td>{{ $item->nama_kantor }}</td>
-                                <td>{{ $item->pemimpin_cabang }}</td>
-                                <td>{{ $item->alamat_cabang }}</td>
+                                <td>{{ $item->nama_jasa }}</td>
+                                
                                 <td>
 
-                                    <a href="" class="btn btn-warning btn-sm mb-2 ubah-data" id="ubah-data" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{ $item->id }}" data-namakantor="{{ $item->nama_kantor }}" data-pimpinan="{{ $item->pemimpin_cabang }}" data-alamat="{{$item->alamat_cabang}}"><i class="fas fa-pencil"></i> Ubah</a>
+                                    <a href="" class="btn btn-warning btn-sm mb-2 ubah-data" id="ubah-data" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{ $item->id }}" data-namajasa="{{ $item->nama_jasa }}"><i class="fas fa-pencil"></i> Ubah</a>
 
-                                    <a href="{{ route('kantor-cabang.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i class="fas fa-trash"></i> Hapus</a>
+                                    <a href="{{ route('jasa.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i class="fas fa-trash"></i> Hapus</a>
 
                                     
                                 </td>
@@ -78,27 +75,19 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Tambah Kantor Cabang</h5>
+              <h5 class="modal-title" id="exampleModalLabel">Tambah Data Jasa</h5>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
 
                
               
-                <form action="{{ route('kantor-cabang') }}" method="POST" id="add_cabang">
+                <form action="{{ route('jasa') }}" method="POST" id="add_jasa">
                     @csrf
                 
                     <div class="mb-3">
-                        <label for="nama_kantor" class="form-label">Nama Kantor</label>
-                        <input type="text" class="form-control" id="nama_kantor" name="nama_kantor" placeholder="Masukkan nama kantor ...." required>
-
-                        <label for="pemimpin_cabang" class="form-label">Pemimpin Cabang</label>
-                        <input type="text" class="form-control" id="pemimpin_cabang" name="pemimpin_cabang" placeholder="Masukkan nama pemimpin cabang ...." required>
-
-                        <label for="alamat_cabang" class="form-label">Alamat Cabang</label>
-                        <textarea name="alamat_cabang" id="alamat_cabang" cols="30" rows="10" class="form-control" placeholder="Masukkan alamat cabang ...."></textarea>
-                        
-
+                        <label for="nama_jasa" class="form-label">Nama Jasa</label>
+                        <input type="text" class="form-control" id="nama_jasa" name="nama_jasa" placeholder="Masukkan nama jasa ...." required>
 
                     </div>
 
@@ -108,7 +97,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
-              <button type="submit" class="btn btn-primary" form="add_cabang">Simpan</button>
+              <button type="submit" class="btn btn-primary" form="add_jasa">Simpan</button>
             </div>
           </div>
         </div>
@@ -127,18 +116,14 @@
         $(".ubah-data").click(function (e) {
         // e.preventDefault();
         //   alert('hai')
-        $("#exampleModalLabel").text("Edit Kantor Cabang");
+        $("#exampleModalLabel").text("Edit Data Jasa");
         
 
         const dataId = $(this).data("id");
-        $("#add_cabang").attr("action", "/admin/kantor-cabang/update/" + dataId);
+        $("#add_jasa").attr("action", "/admin/jasa/update/" + dataId);
 
-        var kantor = $(this).data("namakantor");
-        $("#nama_kantor").val(kantor);
-        var pimpinan = $(this).data("pimpinan");
-        $("#pemimpin_cabang").val(pimpinan);
-        var alamat = $(this).data("alamat");
-        $("#alamat_cabang").val(alamat);
+        var jasa = $(this).data("namajasa");
+        $("#nama_jasa").val(jasa);
 
         // alert(alamat)
 
@@ -149,12 +134,12 @@
 <script>
     $(document).ready(function () {
         $("#tambah_data_baru").click(function () {
-            // Mengosongkan isi formulir dengan ID form_add_cabang
-            $("#add_cabang input[type=text]").val("");
-            $("#add_cabang textarea").val("");
+            // Mengosongkan isi formulir dengan ID form_add_jasa
+            $("#add_jasa input[type=text]").val("");
+            $("#add_jasa textarea").val("");
 
-            $("#exampleModalLabel").text("Tambah Kantor Cabang");
-            $("#add_cabang").attr("action", "/admin/kantor-cabang");
+            $("#exampleModalLabel").text("Tambah Data Jasa");
+            $("#add_jasa").attr("action", "/admin/jasa");
         });
     });
 </script>

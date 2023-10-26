@@ -18,20 +18,34 @@
                     <a class="nav-link" href="{{ route('sejarah') }}">Sejarah</a>
                     <a class="nav-link" href="{{ route('visi-misi') }}">Visi dan Misi</a>
                     <a class="nav-link" href="{{ route('kantor-cabang') }}">Kantor Cabang</a>
-                    <a class="nav-link" href="layout-sidenav-light.html">Legalitas</a>
+                    <a class="nav-link" href="{{ route('legalitas') }}">Legalitas</a>
+                </nav>
+            </div>
+
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#clientDropdown"
+                aria-expanded="false" aria-controls="clientDropdown">
+                <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
+                Client
+                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+            </a>
+
+            <div class="collapse" id="clientDropdown" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                <nav class="sb-sidenav-menu-nested nav">
+                    <a class="nav-link" href="{{ route('sejarah') }}">Daftar Bidang Client</a>
+                    <a class="nav-link" href="{{ route('visi-misi') }}">Daftar Client</a>
                 </nav>
             </div>
 
 
 
-            <a class="nav-link" href="charts.html">
+            <a class="nav-link" href="{{ route('jasa') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                 Jasa
             </a>
-            <a class="nav-link" href="tables.html">
-                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                Client
-            </a>
+
+
+
+
             <a class="nav-link" href="tables.html">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Berita
