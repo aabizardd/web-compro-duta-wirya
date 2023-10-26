@@ -31,7 +31,7 @@
 
             <div class="collapse" id="clientDropdown" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                 <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="{{ route('sejarah') }}">Daftar Bidang Client</a>
+                    <a class="nav-link" href="{{ route('bidang-client') }}">Daftar Bidang Client</a>
                     <a class="nav-link" href="{{ route('visi-misi') }}">Daftar Client</a>
                 </nav>
             </div>

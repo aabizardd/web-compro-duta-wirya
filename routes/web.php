@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\VisiMisiController;
 use App\Http\Controllers\Admin\KantorCabangController;
 use App\Http\Controllers\Admin\LegalitasController;
 use App\Http\Controllers\Admin\JasaController;
+use App\Http\Controllers\Admin\BidangClientController;
 
 /*
 |--------------------------------------------------------------------------
@@ -59,5 +60,12 @@ Route::prefix('admin')->group(function () {
         Route::post('/', [JasaController::class, 'store'])->name('jasa');
         Route::get('hapus/{id}', [JasaController::class, 'destroy'])->name('jasa.hapus');
         Route::post('update/{id}', [JasaController::class, 'update'])->name('jasa.update');
+    });
+
+    Route::prefix('bidang-client')->group(function () {
+        Route::get('/', [BidangClientController::class, 'index'])->name('bidang-client');
+        Route::post('/', [BidangClientController::class, 'store'])->name('bidang-client');
+        Route::get('hapus/{id}', [BidangClientController::class, 'destroy'])->name('bidang-client.hapus');
+        Route::post('update/{id}', [BidangClientController::class, 'update'])->name('bidang-client.update');
     });
 });

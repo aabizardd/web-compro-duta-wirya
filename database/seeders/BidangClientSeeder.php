@@ -25,7 +25,6 @@ class BidangClientSeeder extends Seeder
                     'nama_bidang' => 'Bidang Feasibiity Study (Studi Kelayakan)'
                 ],
 
-
             ]
         );
     }
