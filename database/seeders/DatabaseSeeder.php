@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
             KantorCabangSeeder::class,
             JasaSeeder::class,
             BidangClientSeeder::class,
+            ClientSeeder::class,
             // PostSeeder::class,
             // CommentSeeder::class,
         ]);

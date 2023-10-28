@@ -20,6 +20,9 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
+            $table->string('logo_client')->nullable();
+
+
             $table->timestamps();
         });
     }
