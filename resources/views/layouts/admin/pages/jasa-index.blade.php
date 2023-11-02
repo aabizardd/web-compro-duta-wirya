@@ -39,7 +39,8 @@
                 <table id="datatablesSimple">
                     <thead>
                         <tr>
-                            <th>Jasa</th>
+                            <th>Nama Jasa</th>
+                            <th>Detail Jasa</th>
                             <th>Aksi</th>
 
                         </tr>
@@ -51,12 +52,13 @@
 
                         <tr>
                             <td>{{ $item->nama_jasa }}</td>
-
+                            <td>{!! $item->detail_jasa !!}</td>
                             <td>
 
                                 <a href="" class="btn btn-warning btn-sm mb-2 ubah-data" id="ubah-data"
                                     data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{ $item->id }}"
-                                    data-namajasa="{{ $item->nama_jasa }}"><i class="fas fa-pencil"></i> Ubah</a>
+                                    data-namajasa="{{ $item->nama_jasa }}" data-detailjasa="{{ $item->detail_jasa }}"><i
+                                        class="fas fa-pencil"></i> Ubah</a>
 
                                 <a href="{{ route('jasa.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i
                                         class="fas fa-trash"></i> Hapus</a>
@@ -76,7 +78,7 @@
 </main>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Tambah Data Jasa</h5>
@@ -93,6 +95,14 @@
                         <label for="nama_jasa" class="form-label">Nama Jasa</label>
                         <input type="text" class="form-control" id="nama_jasa" name="nama_jasa"
                             placeholder="Masukkan nama jasa ...." required>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="detail_jasa" class="form-label">
+                            Detail Jasa
+                        </label>
+                        <textarea name="detail_jasa" id="detail_jasa"></textarea>
 
                     </div>
 
@@ -113,6 +123,20 @@
 @section('addScript')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.tiny.cloud/1/9nf544vakjr5ojrlp1lawpnd13s2xks8hk05c3xnu0t67qhq/tinymce/6/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
+<script>
+tinymce.init({
+    selector: 'textarea',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+    height: 600,
+
+});
+
+// tinymce.activeEditor.setContent("Isi yang ingin Anda masukkan ke dalam TinyMCE");
+</script>
 
 
 <script>
@@ -127,10 +151,44 @@ $(document).ready(function() {
         const dataId = $(this).data("id");
         $("#add_jasa").attr("action", "/admin/jasa/update/" + dataId);
 
-        var jasa = $(this).data("namajasa");
-        $("#nama_jasa").val(jasa);
+        $.ajax({
+            url: "/admin/jasa/get_jasa/" + dataId, // Ganti dengan URL yang sesuai
+            type: "GET",
+            success: function(response) {
+                // Response adalah data JSON yang dikirim oleh server
+                if (response.jasa) {
 
-        // alert(alamat)
+                    // console.log(response.jasa.detail_jasa)
+
+
+                    var jasa = $(this).data("namajasa");
+                    $("#nama_jasa").val(response.jasa.nama_jasa);
+
+                    var detailJasa = response.jasa.detail_jasa;
+
+                    // Mengisi nilai atau konten dalam TinyMCE dengan data yang diterima
+                    tinymce.activeEditor.setContent(detailJasa);
+
+
+                } else {
+                    alert('Client not found');
+                }
+            },
+            error: function() {
+                alert('Failed to fetch client data');
+            }
+        });
+
+
+
+
+
+        // var detailjasa = $(this).data("detailjasa");
+        // $("#detail_jasa").val(detailjasa);
+
+        // tinymce.get("detail_jasa").setContent(detailJasa);
+
+        // alert(detailjasa)
 
     });
 });
@@ -143,9 +201,44 @@ $(document).ready(function() {
         $("#add_jasa input[type=text]").val("");
         $("#add_jasa textarea").val("");
 
-        $("#exampleModalLabel").text("Tambah Data Jasa");
+        $("#exampleModalLabel ").text("Tambah Data Jasa ");
         $("#add_jasa").attr("action", "/admin/jasa");
     });
 });
 </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection

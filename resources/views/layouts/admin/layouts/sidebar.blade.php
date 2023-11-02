@@ -7,8 +7,7 @@
                 Dashboard
             </a>
 
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts"
-                aria-expanded="false" aria-controls="collapseLayouts">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
                 <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
                 Profil Kami
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -22,8 +21,7 @@
                 </nav>
             </div>
 
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#clientDropdown"
-                aria-expanded="false" aria-controls="clientDropdown">
+            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#clientDropdown" aria-expanded="false" aria-controls="clientDropdown">
                 <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
                 Client
                 <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
@@ -43,14 +41,18 @@
                 Jasa
             </a>
 
-
-
-
-            <a class="nav-link" href="tables.html">
+            <a class="nav-link" href="{{ route('berita') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Berita
             </a>
-            <a class="nav-link" href="tables.html">
+
+            <a class="nav-link" href="{{ route('kegiatan') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-image"></i></div>
+                Foto Kegiatan
+            </a>
+
+
+            <a class="nav-link" href="{{ route('contact-us') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
                 Kontak
             </a>
@@ -58,6 +60,15 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
+
+
+
+
+
+
+
+
+
         Start Bootstrap
     </div>
 </nav>

@@ -9,6 +9,9 @@ use App\Http\Controllers\Admin\LegalitasController;
 use App\Http\Controllers\Admin\JasaController;
 use App\Http\Controllers\Admin\BidangClientController;
 use App\Http\Controllers\Admin\ClientController;
+use App\Http\Controllers\Admin\KegiatanController;
+use App\Http\Controllers\Admin\BeritaController;
+use App\Http\Controllers\Admin\ContactUsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,6 +64,8 @@ Route::prefix('admin')->group(function () {
         Route::post('/', [JasaController::class, 'store'])->name('jasa');
         Route::get('hapus/{id}', [JasaController::class, 'destroy'])->name('jasa.hapus');
         Route::post('update/{id}', [JasaController::class, 'update'])->name('jasa.update');
+
+        Route::get('get_jasa/{id}', [JasaController::class, 'get_jasa'])->name('jasa.get_jasa');
     });
 
     Route::prefix('bidang-client')->group(function () {
@@ -77,5 +82,32 @@ Route::prefix('admin')->group(function () {
         Route::post('update/{id}', [ClientController::class, 'update'])->name('client.update');
 
         Route::get('get_client_by_id/{id}', [ClientController::class, 'get_client_by_id'])->name('client.get_client_by_id');
+    });
+
+
+    Route::prefix('kegiatan')->group(function () {
+        Route::get('/', [KegiatanController::class, 'index'])->name('kegiatan');
+        Route::post('/', [KegiatanController::class, 'store'])->name('kegiatan');
+        Route::get('hapus/{id}', [KegiatanController::class, 'destroy'])->name('kegiatan.hapus');
+        Route::post('update/{id}', [KegiatanController::class, 'update'])->name('kegiatan.update');
+        Route::get('get_kegiatan/{id}', [KegiatanController::class, 'get_kegiatan'])->name('kegiatan.get_kegiatan');
+    });
+
+    Route::prefix('berita')->group(function () {
+        Route::get('/', [BeritaController::class, 'index'])->name('berita');
+        Route::get('/create', [BeritaController::class, 'create'])->name('berita.create');
+        Route::post('/store', [BeritaController::class, 'store'])->name('berita.store');
+        Route::get('hapus/{id}', [BeritaController::class, 'destroy'])->name('berita.hapus');
+        Route::get('edit/{id}', [BeritaController::class, 'edit'])->name('berita.edit');
+        Route::post('update/{id}', [BeritaController::class, 'update'])->name('berita.update');
+    });
+
+    Route::prefix('contact-us')->group(function () {
+        Route::get('/', [ContactUsController::class, 'index'])->name('contact-us');
+        // Route::post('/', [ContactUsController::class, 'store'])->name('client');
+        Route::get('hapus/{id}', [ContactUsController::class, 'destroy'])->name('contact-us.hapus');
+        // Route::post('update/{id}', [ContactUsController::class, 'update'])->name('client.update');
+
+        // Route::get('get_client_by_id/{id}', [ContactUsController::class, 'get_client_by_id'])->name('client.get_client_by_id');
     });
 });

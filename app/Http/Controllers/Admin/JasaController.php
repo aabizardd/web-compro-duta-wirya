@@ -53,9 +53,23 @@ class JasaController extends Controller
     {
         $data = [
             'nama_jasa' => $request->nama_jasa,
+            'detail_jasa' => $request->detail_jasa,
         ];
 
         Jasa::where('id', $id)->update($data);
         return redirect()->back()->with(['success' => 'Data jasa berhasil diubah!']);
+    }
+
+
+    public function get_jasa($id)
+    {
+
+        $jasa = Jasa::find($id);
+
+        if (!$jasa) {
+            return response()->json(['message' => 'Jasa not found'], 404);
+        }
+
+        return response()->json(['jasa' => $jasa], 200);
     }
 }
