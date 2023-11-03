@@ -12,6 +12,8 @@ use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\KegiatanController;
 use App\Http\Controllers\Admin\BeritaController;
 use App\Http\Controllers\Admin\ContactUsController;
+use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\FrontEndController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,9 +26,11 @@ use App\Http\Controllers\Admin\ContactUsController;
 |asdas
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [FrontEndController::class, 'index']);
 
 Auth::routes();
 
@@ -35,6 +39,7 @@ Route::prefix('admin')->group(function () {
 
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
+    Route::post('/update', [HomeController::class, 'update'])->name('update');
 
     Route::prefix('sejarah')->group(function () {
         Route::get('/', [SejarahController::class, 'index'])->name('sejarah');
@@ -109,5 +114,14 @@ Route::prefix('admin')->group(function () {
         // Route::post('update/{id}', [ContactUsController::class, 'update'])->name('client.update');
 
         // Route::get('get_client_by_id/{id}', [ContactUsController::class, 'get_client_by_id'])->name('client.get_client_by_id');
+    });
+
+    Route::prefix('profile')->group(function () {
+        Route::get('/', [ProfileController::class, 'index'])->name('profile');
+        // Route::post('/', [ProfileController::class, 'store'])->name('client');
+        // Route::get('hapus/{id}', [ProfileController::class, 'destroy'])->name('contact-us.hapus');
+        // Route::post('update/{id}', [ProfileController::class, 'update'])->name('client.update');
+
+        // Route::get('get_client_by_id/{id}', [ProfileController::class, 'get_client_by_id'])->name('client.get_client_by_id');
     });
 });
