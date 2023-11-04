@@ -7,4 +7,6 @@
 @include('layouts.frontend.home.brand')
 @include('layouts.frontend.home.blog')
 
+
+
 @endsection

@@ -2,13 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\SampleMail;
 use App\Models\Berita;
+use App\Models\BidangClient;
 use App\Models\Client;
 use App\Models\Jasa;
+use App\Models\KantorCabang;
 use App\Models\Kegiatan;
+use App\Models\Legalitas;
 use App\Models\Sejarah;
+use App\Models\VisiMisi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
+
 
 class FrontEndController extends Controller
 {
@@ -21,9 +27,9 @@ class FrontEndController extends Controller
         $data = [
             'kegiatan' => Kegiatan::all(),
             'sejarah' => Sejarah::first(),
-            'jasa' => Jasa::all(),
+            'jasa' => Jasa::take(3)->get(),
             'client' => Client::all(),
-            'berita' => Berita::all(),
+            'berita' => Berita::take(3)->get(),
         ];
 
         // dd(DB::table('kegiatan')->select('*')->get());
@@ -31,51 +37,171 @@ class FrontEndController extends Controller
         return view('layouts.frontend.home.index', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function sejarah()
     {
-        //
+
+        $data = [
+
+            'sejarah' => Sejarah::first(),
+            // 'visi_misi' => VisiMisi::first(),
+            // 'legalitas' => Legalitas::first(),
+            // 'cabang' => KantorCabang::all(),
+
+
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.profil_kami.sejarah', $data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function visi_misi()
     {
-        //
+
+        $data = [
+
+            // 'sejarah' => Sejarah::first(),
+            'visi_misi' => VisiMisi::first(),
+            // 'legalitas' => Legalitas::first(),
+            // 'cabang' => KantorCabang::all(),
+
+
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.profil_kami.visi-misi', $data);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function kantor_cabang()
     {
-        //
+
+        $data = [
+
+            // 'sejarah' => Sejarah::first(),
+            // 'visi_misi' => VisiMisi::first(),
+            // 'legalitas' => Legalitas::first(),
+            'cabang' => KantorCabang::all(),
+
+
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.profil_kami.cabang', $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function legalitas()
     {
-        //
+
+        $data = [
+
+            // 'sejarah' => Sejarah::first(),
+            // 'visi_misi' => VisiMisi::first(),
+            'legalitas' => Legalitas::first(),
+            // 'cabang' => KantorCabang::all(),
+
+
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.profil_kami.legalitas', $data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+
+    public function jasa()
     {
-        //
+
+        // $jasa_one
+
+        if (!isset($_GET['id'])) {
+
+            $jasa_one = Jasa::find(1);
+        } else {
+            $jasa_one = Jasa::find($_GET['id']);
+        }
+
+
+        $data = [
+            'jasa' => Jasa::all(),
+            'jasa_one' => $jasa_one
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.jasa.index', $data);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function klien()
     {
-        //
+
+        $data = [
+
+            'bidang_klien' => BidangClient::all(),
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.klien.index', $data);
+    }
+
+    public function berita()
+    {
+
+        $data = [
+            'sejarah' => Sejarah::first(),
+            'bidang_klien' => BidangClient::all(),
+            'berita' => Berita::all(),
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.berita.index', $data);
+    }
+
+    public function berita_detail($id)
+    {
+
+        $data = [
+            'detail_berita' => Berita::find($id)
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.berita.detail', $data);
+    }
+
+    public function kontak()
+    {
+
+        $data = [
+            'sejarah' => Sejarah::first(),
+            'bidang_klien' => BidangClient::all(),
+            'berita' => Berita::all(),
+        ];
+
+        // dd(DB::table('kegiatan')->select('*')->get());
+
+        return view('layouts.frontend.kontak.index', $data);
+    }
+
+    public function send_email(Request $request)
+    {
+
+
+        $data =  [
+            'message' => $request->message,
+            'mail_from' => $request->from_mail,
+            'nama_pengirim' => $request->nama_pengirim
+        ];
+
+        Mail::to('duta_wirya@yahoo.com')->send(
+            new SampleMail($data)
+        );
+
+        // dd('Mail send successfully.');
+
+        return redirect()->back();
     }
 }

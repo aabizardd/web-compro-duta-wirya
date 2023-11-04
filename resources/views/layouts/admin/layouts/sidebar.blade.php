@@ -1,6 +1,17 @@
-<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+<nav class="sb-sidenav accordion" id="sidenavAccordion" style="background-color: #00247E;padding-top: 70px;">
+
+
+    <center>
+
+        <img src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" width="100">
+    </center>
+
+
     <div class="sb-sidenav-menu">
-        <div class="nav">
+
+
+
+        <div class="nav" style="color: white">
             <div class="sb-sidenav-menu-heading">Main Menu</div>
             <a class="nav-link" href="{{ route('home') }}">
                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
@@ -60,6 +71,44 @@
     </div>
     <div class="sb-sidenav-footer">
         <div class="small">Logged in as:</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

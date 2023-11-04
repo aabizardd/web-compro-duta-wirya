@@ -25,8 +25,7 @@
                     Data Jasa
                 </div>
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    id="tambah_data_baru">
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" id="tambah_data_baru">
                     <i class="fas fa-plus"></i>
                     Tambah Data
                 </button>
@@ -40,7 +39,8 @@
                     <thead>
                         <tr>
                             <th>Nama Jasa</th>
-                            <th>Detail Jasa</th>
+                            <th>Keterangan Jasa</th>
+                            <!-- <th>Detail Jasa</th> -->
                             <th>Aksi</th>
 
                         </tr>
@@ -52,16 +52,13 @@
 
                         <tr>
                             <td>{{ $item->nama_jasa }}</td>
-                            <td>{!! $item->detail_jasa !!}</td>
+                            <td>{{ $item->keterangan_jasa }}</td>
+                            <!-- <td>{!! $item->detail_jasa !!}</td> -->
                             <td>
 
-                                <a href="" class="btn btn-warning btn-sm mb-2 ubah-data" id="ubah-data"
-                                    data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{ $item->id }}"
-                                    data-namajasa="{{ $item->nama_jasa }}" data-detailjasa="{{ $item->detail_jasa }}"><i
-                                        class="fas fa-pencil"></i> Ubah</a>
+                                <a href="" class="btn btn-warning btn-sm mb-2 ubah-data" id="ubah-data" data-bs-toggle="modal" data-bs-target="#exampleModal" data-id="{{ $item->id }}" data-namajasa="{{ $item->nama_jasa }}" data-detailjasa="{{ $item->detail_jasa }}"><i class="fas fa-pencil"></i> Ubah</a>
 
-                                <a href="{{ route('jasa.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i
-                                        class="fas fa-trash"></i> Hapus</a>
+                                <a href="{{ route('jasa.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i class="fas fa-trash"></i> Hapus</a>
 
 
                             </td>
@@ -93,8 +90,13 @@
 
                     <div class="mb-3">
                         <label for="nama_jasa" class="form-label">Nama Jasa</label>
-                        <input type="text" class="form-control" id="nama_jasa" name="nama_jasa"
-                            placeholder="Masukkan nama jasa ...." required>
+                        <input type="text" class="form-control" id="nama_jasa" name="nama_jasa" placeholder="Masukkan nama jasa ...." required>
+
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="keterangan_jasa" class="form-label">Keterangan Jasa</label>
+                        <textarea class="form-control" name="keterangan_jasa" id="keterangan_jasa" required></textarea>
 
                     </div>
 
@@ -123,88 +125,88 @@
 @section('addScript')
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script src="https://cdn.tiny.cloud/1/9nf544vakjr5ojrlp1lawpnd13s2xks8hk05c3xnu0t67qhq/tinymce/6/tinymce.min.js"
-    referrerpolicy="origin"></script>
+<script src="https://cdn.tiny.cloud/1/9nf544vakjr5ojrlp1lawpnd13s2xks8hk05c3xnu0t67qhq/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
 
 <script>
-tinymce.init({
-    selector: 'textarea',
-    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-    height: 600,
+    tinymce.init({
+        selector: '#detail_jasa',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        height: 600,
 
-});
+    });
 
-// tinymce.activeEditor.setContent("Isi yang ingin Anda masukkan ke dalam TinyMCE");
+    // tinymce.activeEditor.setContent("Isi yang ingin Anda masukkan ke dalam TinyMCE");
 </script>
 
 
 <script>
-$(document).ready(function() {
+    $(document).ready(function() {
 
-    $(".ubah-data").click(function(e) {
-        // e.preventDefault();
-        //   alert('hai')
-        $("#exampleModalLabel").text("Edit Data Jasa");
-
-
-        const dataId = $(this).data("id");
-        $("#add_jasa").attr("action", "/admin/jasa/update/" + dataId);
-
-        $.ajax({
-            url: "/admin/jasa/get_jasa/" + dataId, // Ganti dengan URL yang sesuai
-            type: "GET",
-            success: function(response) {
-                // Response adalah data JSON yang dikirim oleh server
-                if (response.jasa) {
-
-                    // console.log(response.jasa.detail_jasa)
+        $(".ubah-data").click(function(e) {
+            // e.preventDefault();
+            //   alert('hai')
+            $("#exampleModalLabel").text("Edit Data Jasa");
 
 
-                    var jasa = $(this).data("namajasa");
-                    $("#nama_jasa").val(response.jasa.nama_jasa);
+            const dataId = $(this).data("id");
+            $("#add_jasa").attr("action", "/admin/jasa/update/" + dataId);
 
-                    var detailJasa = response.jasa.detail_jasa;
+            $.ajax({
+                url: "/admin/jasa/get_jasa/" + dataId, // Ganti dengan URL yang sesuai
+                type: "GET",
+                success: function(response) {
+                    // Response adalah data JSON yang dikirim oleh server
+                    if (response.jasa) {
 
-                    // Mengisi nilai atau konten dalam TinyMCE dengan data yang diterima
-                    tinymce.activeEditor.setContent(detailJasa);
+                        // console.log(response.jasa.detail_jasa)
 
 
-                } else {
-                    alert('Client not found');
+                        var jasa = $(this).data("namajasa");
+                        $("#nama_jasa").val(response.jasa.nama_jasa);
+                        $("#keterangan_jasa").val(response.jasa.keterangan_jasa);
+
+                        var detailJasa = response.jasa.detail_jasa;
+
+                        // Mengisi nilai atau konten dalam TinyMCE dengan data yang diterima
+                        tinymce.activeEditor.setContent(detailJasa);
+
+
+                    } else {
+                        alert('Client not found');
+                    }
+                },
+                error: function() {
+                    alert('Failed to fetch client data');
                 }
-            },
-            error: function() {
-                alert('Failed to fetch client data');
-            }
+            });
+
+
+
+
+
+            // var detailjasa = $(this).data("detailjasa");
+            // $("#detail_jasa").val(detailjasa);
+
+            // tinymce.get("detail_jasa").setContent(detailJasa);
+
+            // alert(detailjasa)
+
         });
-
-
-
-
-
-        // var detailjasa = $(this).data("detailjasa");
-        // $("#detail_jasa").val(detailjasa);
-
-        // tinymce.get("detail_jasa").setContent(detailJasa);
-
-        // alert(detailjasa)
-
     });
-});
 </script>
 
 <script>
-$(document).ready(function() {
-    $("#tambah_data_baru").click(function() {
-        // Mengosongkan isi formulir dengan ID form_add_jasa
-        $("#add_jasa input[type=text]").val("");
-        $("#add_jasa textarea").val("");
+    $(document).ready(function() {
+        $("#tambah_data_baru").click(function() {
+            // Mengosongkan isi formulir dengan ID form_add_jasa
+            $("#add_jasa input[type=text]").val("");
+            $("#add_jasa textarea").val("");
 
-        $("#exampleModalLabel ").text("Tambah Data Jasa ");
-        $("#add_jasa").attr("action", "/admin/jasa");
+            $("#exampleModalLabel ").text("Tambah Data Jasa ");
+            $("#add_jasa").attr("action", "/admin/jasa");
+        });
     });
-});
 </script>
 
 

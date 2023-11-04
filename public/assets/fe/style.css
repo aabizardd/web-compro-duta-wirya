@@ -2465,7 +2465,7 @@ a.em-active-button:hover {
 <!-- Techno - Breatcome Area Css -->
 <!-- ============================================================== -->*/
 .breatcome_area {
-    background: url(assets/images/slider/slider-10.jpg);
+    /* background: url(assets/images/slider/slider-10.jpg); */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -6467,14 +6467,13 @@ span.fill.my-class2 {
 
 .service-details-research-button a {
     color: #ffffff;
-    background: #0c5adb;
+    background: #0c5aaadb;
     font-family: Open Sans;
     font-weight: 500;
     text-transform: capitalize;
     border: 0px solid #ffffff;
     border-radius: 5px 5px 5px 5px;
     padding: 14px 35px 14px 35px;
-    margin-top: 15px;
     transition: .5s;
 }
 
@@ -7395,10 +7394,16 @@ a.team-color3 i {
 
 .portfolio_menu ul li a {
     display: block;
-    color: #fff;
-    text-transform: uppercase;
+    color: black;
     position: relative;
     transition: .5s;
+    text-decoration: none;
+}
+
+.portfolio_menu ul li a:hover {
+
+    color: white;
+
 }
 
 .portfolio_menu ul li a:before {
@@ -7434,7 +7439,7 @@ a.team-color3 i {
 
 .portfolio_nav ul li:hover,
 .portfolio_nav ul li.current_menu_item {
-    color: #fff;
+    color: #ffff;
     background: #0c5adb;
 }
 

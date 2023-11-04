@@ -1,17 +1,25 @@
-<div class="blog_area pt-85 pb-65" style="background-image: url(<?= asset('/') ?>assets/fe/assets/images/bg-cnt.jpg)">
+<div class="blog_area bg_color2 pt-80 pb-70">
     <div class="container">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="section_title text_center mb-60 mt-3 wow fadeInDown" data-wow-delay="0.3s">
+            <div class="col-lg-9">
+                <div class="section_title text_left mb-60 mt-3">
                     <div class="section_sub_title uppercase mb-3">
-                        <h6>LATEST ARTICLE</h6>
+                        <h6>BERITA TERAKHIR</h6>
                     </div>
                     <div class="section_main_title">
-                        <h1>See Our Latest</h1>
-                        <h1>Blog Posts</h1>
+                        <h1>Lihat Berita Terakhir Kita</h1>
+                        <h1>Postingan Berita</h1>
                     </div>
                     <div class="em_bar">
                         <div class="em_bar_bg"></div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-3">
+                <div class="section_button mt-50">
+                    <div class="button two">
+                        <a href="{{ url('berita') }}">Lihat Semua</a>
                     </div>
                 </div>
             </div>
@@ -28,45 +36,35 @@
             $date = date('d', $timestamp);
 
             // Get the abbreviated month name (e.g., "Nov")
-            $monthAbbreviated = date('M', $timestamp);
+            $month = date('M', $timestamp);
 
             // Get the year
             $year = date('Y', $timestamp);
             @endphp
 
             <div class="col-lg-4 col-md-6 col-sm-12">
-                <div class="single_blog text-center mb-4 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="single_blog_thumb">
-                        <a href="blog-details.html"><img src="{{ asset('/') }}assets/admin/assets/img/cover_berita/{{ $item->cover }}" alt="" width="100%" height="250" /></a>
+                <div class="single_blog mb-4">
+                    <div class="single_blog_thumb el_thumb">
+                        <a href="{{ route('berita.detail', $item->id) }}"><img src="{{ asset('/') }}assets/admin/assets/img/cover_berita/{{ $item->cover }}" alt="" /></a>
                     </div>
-                    <div class="single_blog_date">
-                        <div class="single_blog_date_inner">
-                            <h3>{{ $date }}</h3>
-                            <span>{{ $monthAbbreviated  }}</span>
-                            <span class="years">{{ $year }}</span>
+                    <div class="single_blog_content pl-4 pr-4">
+                        <div class="techno_blog_meta shado_bg">
+                            <a href="#">DWPC </a>
+                            <span class="meta-date pl-3">{{ $month }} {{ $date }}, {{ $year }}</span>
                         </div>
-                    </div>
-                    <div class="single_blog_content pt-4 pl-4 pr-4">
-
-                        <div class="blog_page_title pb-1">
-                            <h3>
-                                <a href="blog-details.html">The five devices you need to work anytime</a>
-                            </h3>
+                        <div class="blog_page_title pb-1 pt-3">
+                            <h3><a href="{{ route('berita.detail', $item->id) }}">{{ $item->judul }}</a></h3>
                         </div>
-                        <div class="blog_description">
-                            <p>
-                                {!! substr($item->isi, 0, 100) !!}
+                        <div class="blog_description pb-3">
+                            <p style="text-align: justify;">
+                                {!! substr(strip_tags($item->isi), 0, 120) !!}
                             </p>
-                        </div>
-                        <div class="blog_page_button style_two pb-5">
-                            <a href="blog-details.html">Read More <i class="fa fa-long-arrow-right"></i></a>
+
                         </div>
                     </div>
                 </div>
             </div>
             @endforeach
-
-
 
 
 

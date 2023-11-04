@@ -54,6 +54,7 @@ class JasaController extends Controller
         $data = [
             'nama_jasa' => $request->nama_jasa,
             'detail_jasa' => $request->detail_jasa,
+            'keterangan_jasa' => $request->keterangan_jasa,
         ];
 
         Jasa::where('id', $id)->update($data);

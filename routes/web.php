@@ -31,6 +31,36 @@ use App\Http\Controllers\FrontEndController;
 // });
 
 Route::get('/', [FrontEndController::class, 'index']);
+// Route::get('/profil-kami', [FrontEndController::class, 'profil_kami'])->name('profil-kami');
+
+Route::prefix('profil-kami')->group(function () {
+    Route::get('/', [FrontEndController::class, 'sejarah'])->name('profil-kami');
+    Route::get('/cabang', [FrontEndController::class, 'kantor_cabang'])->name('profil-kami.cabang');
+    Route::get('/visi-misi', [FrontEndController::class, 'visi_misi'])->name('profil-kami.visi-misi');
+
+    Route::get('/legalitas', [FrontEndController::class, 'legalitas'])->name('profil-kami.legalitas');
+
+    // Route::post('/visi-misi', [FrontEndController::class, 'update'])->name('profil-kami.visi-misi');
+});
+
+Route::prefix('jasa')->group(function () {
+    Route::get('/', [FrontEndController::class, 'jasa'])->name('jasa');
+});
+
+Route::prefix('klien')->group(function () {
+    Route::get('/', [FrontEndController::class, 'klien'])->name('klien');
+});
+
+Route::prefix('berita')->group(function () {
+    Route::get('/', [FrontEndController::class, 'berita'])->name('berita');
+    Route::get('detail/{id}', [FrontEndController::class, 'berita_detail'])->name('berita.detail');
+});
+
+Route::prefix('kontak')->group(function () {
+    Route::get('/', [FrontEndController::class, 'kontak'])->name('kontak');
+    Route::post('/', [FrontEndController::class, 'send_email'])->name('kontak');
+});
+
 
 Auth::routes();
 
