@@ -147,7 +147,7 @@
             // e.preventDefault();
             //   alert('hai')
             $("#exampleModalLabel").text("Edit Data Jasa");
-
+            tinymce.activeEditor.setContent("");
 
             const dataId = $(this).data("id");
             $("#add_jasa").attr("action", "/admin/jasa/update/" + dataId);
@@ -202,12 +202,23 @@
             // Mengosongkan isi formulir dengan ID form_add_jasa
             $("#add_jasa input[type=text]").val("");
             $("#add_jasa textarea").val("");
-
+            // $("#detail_jasa textarea").val("");
+            tinymce.activeEditor.setContent("");
             $("#exampleModalLabel ").text("Tambah Data Jasa ");
             $("#add_jasa").attr("action", "/admin/jasa");
         });
     });
 </script>
+
+
+
+
+
+
+
+
+
+
 
 
 

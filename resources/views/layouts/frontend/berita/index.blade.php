@@ -52,7 +52,9 @@
                     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div class="single_blog mb-30">
                             <div class="single_blog_thumb pb-4">
-                                <a href="{{ route('berita.detail', $item->id) }}"><img src="{{ asset('/') }}assets/admin/assets/img/cover_berita/{{ $item->cover }}" alt="" /></a>
+                                <a href="{{ route('berita.detail', $item->id) }}"><img
+                                        src="{{ asset('/') }}assets/admin/assets/img/cover_berita/{{ $item->cover }}"
+                                        alt="" /></a>
                             </div>
                             <div class="single_blog_content pl-4 pr-4">
                                 <div class="techno_blog_meta">
@@ -81,7 +83,7 @@
             </div>
             <div class=" col-lg-4 col-md-5 col-sm-12 col-xs-12 sidebar-right content-widget pdsr">
                 <div class="blog-left-side widget">
-                    <div id="search-3" class="widget widget_search">
+                    {{-- <div id="search-3" class="widget widget_search">
                         <div class="search">
                             <form action="#" method="get">
                                 <input type="text" name="s" value="" placeholder="Cari Berita" title="Search for:">
@@ -90,7 +92,7 @@
                                 </button>
                             </form>
                         </div>
-                    </div>
+                    </div> --}}
                     <div class="widget_about widget sn_bd_dtl_wd">
                         {{-- <h2 class="widget-title">About PT Duta Wirya</h2> --}}
                         <div class="widget_about_thumb">
@@ -129,6 +131,7 @@
 
 
 @include('layouts.frontend.jasa.jasa-carousel')
+
 
 
 

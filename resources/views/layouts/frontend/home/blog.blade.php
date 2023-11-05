@@ -57,7 +57,7 @@
                         </div>
                         <div class="blog_description pb-3">
                             <p style="text-align: justify;">
-                                {!! substr(strip_tags($item->isi), 0, 120) !!}
+                                {!! substr(strip_tags($item->isi), 0, 120) ." ...." !!}
                             </p>
 
                         </div>
@@ -65,6 +65,8 @@
                 </div>
             </div>
             @endforeach
+
+
 
 
 

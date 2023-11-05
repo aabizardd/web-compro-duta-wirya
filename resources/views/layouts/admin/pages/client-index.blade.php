@@ -156,10 +156,10 @@
 
                 if (fileSize > maxFileSize) {
                     Swal.fire({
-                        icon: 'error'
-                        , title: 'Ukuran gambar terlalu besar'
-                        , text: 'Maksimum 5MB diizinkan.'
-                    , });
+                        icon: 'error',
+                        title: 'Ukuran gambar terlalu besar',
+                        text: 'Maksimum 5MB diizinkan.',
+                    });
 
                     // Reset input file
                     $(this).val('');
@@ -186,7 +186,6 @@
 
         });
     });
-
 </script>
 
 
@@ -201,8 +200,8 @@
 
             $.ajax({
                 url: "/admin/client/get_client_by_id/" + dataId, // Ganti dengan URL yang sesuai
-                type: "GET"
-                , success: function(response) {
+                type: "GET",
+                success: function(response) {
                     // Response adalah data JSON yang dikirim oleh server
                     if (response.client) {
 
@@ -214,25 +213,27 @@
                         $("#pemberi_tugas").val(response.client[0].pemberi_tugas);
                         $("#id_bidang_client").val(response.client[0].id_bidang_client);
 
-                        var img = "{{ asset('/') }}assets/admin/assets/img/logo_client/" + response.client[0].logo_client;
+                        var img = "{{ asset('/') }}assets/admin/assets/img/logo_client/" +
+                            response.client[0].logo_client;
 
                         $("#preview_img").attr('src', img);
 
-                        var input_old_img = `<input type="" name='old_logo_client' value="` + response.client[0].logo_client + `"/>` // Menyalin elemen input
+                        var input_old_img =
+                            `<input type="hidden" name='old_logo_client' value="` +
+                            response.client[0].logo_client + `"/>` // Menyalin elemen input
                         $("#tambahan_update").empty().append(input_old_img);
 
 
                     } else {
                         alert('Client not found');
                     }
-                }
-                , error: function() {
+                },
+                error: function() {
                     alert('Failed to fetch client data');
                 }
             });
         });
     });
-
 </script>
 
 
@@ -251,6 +252,6 @@
             $("#add_client").attr("action", "/admin/client");
         });
     });
-
 </script>
+
 @endsection

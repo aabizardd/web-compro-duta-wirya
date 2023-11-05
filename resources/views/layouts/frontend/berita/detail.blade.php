@@ -45,7 +45,7 @@ $year = date('Y', $timestamp);
 
 <!-- BLOG AREA -->
 <div class="blog_area blog-details-area pt-100 pb-100" id="blog">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="row">
@@ -97,6 +97,8 @@ $year = date('Y', $timestamp);
 
 
 @include('layouts.frontend.jasa.jasa-carousel')
+
+
 
 
 

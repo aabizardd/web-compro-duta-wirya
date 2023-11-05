@@ -50,7 +50,7 @@
                             <td>{{ $item->nama }}</td>
                             <td>{{ $item->email }}</td>
                             <td>{{ $item->no_telepon }}</td>
-                            <td>{{ $item->isi }}</td>
+                            <td>{{ $item->isi_pesan }}</td>
                             <td>
 
                                 <a href="{{ route('contact-us.hapus', $item->id) }}" class="btn btn-danger btn-sm mb-2"><i class="fas fa-trash"></i> Hapus</a>
@@ -80,16 +80,16 @@
 
 <script>
     tinymce.init({
-        selector: 'textarea'
-        , plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount'
-        , toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat'
-        , height: 600,
+        selector: 'textarea',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
+        height: 600,
 
     });
 
     // tinymce.activeEditor.setContent("Isi yang ingin Anda masukkan ke dalam TinyMCE");
-
 </script>
+
 
 
 

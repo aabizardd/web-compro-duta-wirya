@@ -98,10 +98,14 @@
                         <h4 class="widget-title pb-4">Jasa Kami</h4>
                         <div class="menu-quick-link-container ml-4">
                             <ul id="menu-quick-link" class="menu">
-                                @foreach ($jasa as $item)
-                                <li><a href="#">{{ $item->nama_jasa }}</a></li>
-                                @endforeach
+                                @foreach ($jasa as $key => $item)
+                                @if ($key < 5) <li><a href="{{ url('jasa') ."?jasa=". $item->id }}">{{ $item->nama_jasa }}</a></li>
+                                    @else
+                                    @break
+                                    @endif
+                                    @endforeach
 
+                                    <li><a href="{{ url('jasa') }}">Selengkapnya <i class="fa fa-long-arrow-right"></i></a></li>
 
                             </ul>
                         </div>
@@ -132,7 +136,7 @@
             <div class="col-lg-6 col-md-6">
                 <div class="footer-bottom-content">
                     <div class="footer-bottom-content-copy">
-                        <p>© 2023 PT Duta Wirya. </p>
+                        <p>© {{ date('Y') }} PT Duta Wirya. </p>
                     </div>
                 </div>
             </div>
@@ -183,6 +187,8 @@
     <script type="text/javascript" src="{{ asset('/') }}assets/fe/assets/js/theme.js"></script>
     <!-- jquery js -->
 </body>
+
+
 
 
 

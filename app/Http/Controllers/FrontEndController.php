@@ -6,6 +6,7 @@ use App\Mail\SampleMail;
 use App\Models\Berita;
 use App\Models\BidangClient;
 use App\Models\Client;
+use App\Models\ContactUs;
 use App\Models\Jasa;
 use App\Models\KantorCabang;
 use App\Models\Kegiatan;
@@ -196,12 +197,21 @@ class FrontEndController extends Controller
             'nama_pengirim' => $request->nama_pengirim
         ];
 
-        Mail::to('duta_wirya@yahoo.com')->send(
+        $data_db = [
+            'nama' => $request->nama_pengirim,
+            'email' => $request->from_mail,
+            'no_telepon' => $request->no_telepon,
+            'isi_pesan' => $request->message,
+        ];
+
+        ContactUs::create($data_db);
+
+        Mail::to('m.abizard1123@gmail.com')->send(
             new SampleMail($data)
         );
 
         // dd('Mail send successfully.');
 
-        return redirect()->back();
+        return redirect()->back()->with(['success' => 'Pesan anda berhasil dikirim!']);
     }
 }

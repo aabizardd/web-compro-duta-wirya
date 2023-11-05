@@ -58,7 +58,22 @@
             </div>
             <div class="col-lg-6">
                 <div class="contact_from">
+
+
+
                     <div class="contact_from_box">
+
+                        @if (Session::has('success'))
+                        <div class="alert alert-success alert-dismissible fade show mb-3" role="alert">
+                            {{ Session::get('success') }}
+                            <button type="button" class="btn btn-sm" data-dismiss="alert" aria-label="Close">
+                                <i class="fa fa-close"></i>
+                            </button>
+                        </div>
+                        @endif
+
+
+
                         <div class="contact_title pb-4">
                             <h3>Kirim Pesan </h3>
                         </div>
@@ -70,6 +85,14 @@
                                         <input type="text" name="nama_pengirim" placeholder="Nama">
                                     </div>
                                 </div>
+
+                                <div class="col-lg-12">
+                                    <div class="form_box mb-30">
+                                        <input type="number" name="no_telepon" placeholder="Nomor Telepon">
+                                    </div>
+                                </div>
+
+
                                 <div class="col-lg-12">
                                     <div class="form_box mb-30">
                                         <input type="email" name="from_mail" placeholder="Alamat Email">
@@ -80,7 +103,7 @@
                                         <textarea name="message" id="message" cols="30" rows="10" placeholder="Tulis Pesan"></textarea>
                                     </div>
                                     <div class="quote_btn">
-                                        <button class="btn" type="submit">Kirim Pesan</button>
+                                        <button class="btn" id="kirimPesanBtn" type="submit">Kirim Pesan</button>
                                     </div>
                                 </div>
                             </div>
@@ -102,6 +125,58 @@
         </div>
     </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $("#kirimPesanBtn").click(function() {
+            // Mengganti teks tombol dengan teks "Loading..."
+
+            var form = document.getElementById("contact_form");
+
+            $(this).html("Loading...");
+            // Menonaktifkan tombol agar tidak dapat ditekan lagi
+            $(this).attr("disabled", true);
+
+            form.submit();
+
+        });
+    });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

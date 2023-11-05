@@ -26,13 +26,16 @@
                     <div class="section_content_text pt-4">
                         <p>
 
-                            {!! substr($sejarah->sejarah, 0, strpos($sejarah->sejarah, ' ', 800)) !!}
+                            {!! substr($sejarah->sejarah, 0, strpos($sejarah->sejarah, ' ', 800)) . " ...." !!}
 
                         </p>
 
-                        <a class="btn btn-primary mt-2" style="background-color: #00247E;color:white" href="{{ route('profil-kami') }}">
-                            Baca Selengkapnya
-                        </a>
+
+                        <div class="section_button" style="float: left;">
+                            <div class="button two">
+                                <a href="{{ route('profil-kami') }}">Baca Selengkapnya</a>
+                            </div>
+                        </div>
 
                     </div>
                 </div>

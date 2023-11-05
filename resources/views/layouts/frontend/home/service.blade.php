@@ -36,7 +36,7 @@
                         <h4>{{ $item->nama_jasa }}</h4>
                     </div>
                     <div class="service_style_one_text">
-                        <p>{{$item->keterangan_jasa}}</p>
+                        <p>{{ substr($item->keterangan_jasa, 0,120) . " ...."}}</p>
                     </div>
                     <div class="service_style_one_button pt-3">
                         <a href="{{ url('jasa') }}?id={{ $item->id }}">Baca Selengkapnya <i class="fa fa-long-arrow-right"></i></a>
@@ -46,6 +46,12 @@
 
 
             @endforeach
+
+
+
+
+
+
 
 
 
