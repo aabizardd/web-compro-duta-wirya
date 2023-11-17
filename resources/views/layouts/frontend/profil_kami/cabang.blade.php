@@ -40,8 +40,8 @@
                                         </div>
 
                                         <div class="single_testimonial_content_title_two mt-4">
-                                            <h4>{{ $item->pemimpin_cabang }}</h4>
-                                            <span>{{ $item->nama_kantor }}</span>
+
+                                            <h6>{{ $item->nama_kantor }}</h6>
                                         </div>
 
                                         <div class="single_testimonial_content_text_two mb-4">

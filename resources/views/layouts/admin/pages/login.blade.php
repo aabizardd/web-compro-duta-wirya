@@ -4,7 +4,7 @@
 <div class="card shadow-lg border-0 rounded-lg mt-5">
     <div class="card-header">
         <center>
-            <img src="{{ asset('assets/admin/assets/img/logo dwpc.png') }}" alt="" width="100">
+            <img src="{{ asset('assets/admin/assets/img/logo dwpc bulat.png') }}" alt="" width="100">
         </center>
         <h3 class="text-center font-weight-light my-4">
             Login Admin Compro

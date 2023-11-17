@@ -139,7 +139,7 @@ class FrontEndController extends Controller
 
         $data = [
 
-            'bidang_klien' => BidangClient::all(),
+            'bidang_klien' => Jasa::all(),
         ];
 
         // dd(DB::table('kegiatan')->select('*')->get());

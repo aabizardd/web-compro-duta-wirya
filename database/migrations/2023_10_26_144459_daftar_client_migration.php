@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('pemberi_tugas');
 
-            $table->unsignedBigInteger('id_bidang_client')->nullable();
-            $table->foreign('id_bidang_client')->references('id')->on('bidang_client')->constrained()
+            $table->unsignedBigInteger('id_jasa')->nullable();
+            $table->foreign('id_jasa')->references('id')->on('jasa')->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 

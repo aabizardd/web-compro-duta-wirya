@@ -15,11 +15,7 @@
                                     {{-- <h1>for your Business</h1> --}}
                                 </div>
 
-                                <div class="slider-video wow fadeInUp" data-wow-delay="0.3s">
-                                    <div class="video-icon">
-                                        <a class="video-vemo-icon venobox vbox-item" data-vbtype="youtube" data-autoplay="true" href="https://youtu.be/BS4TUd7FJSg"><i class="fa fa-play"></i></a>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

@@ -2,8 +2,8 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="menu">
-                <a href="/" class="logo"><img class="down" src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" style="width: 80px;margin-top: -15px;margin-bottom: 10px;" />
-                    <img class="main_sticky" src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" style="width: 80px;margin-top: -15px;margin-bottom: 10px;" /></a>
+                <a href="/" class="logo"><img class="down" src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" style="width: 400px;margin-top: -15px;" />
+                    <img class="main_sticky" src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" style="width: 400px;margin-top: -15px;" /></a>
                 <ul class="clearfix">
                     <li>
                         <a href="/">Home</a>

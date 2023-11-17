@@ -92,6 +92,8 @@
                         <label for="nama_jasa" class="form-label">Nama Jasa</label>
                         <input type="text" class="form-control" id="nama_jasa" name="nama_jasa" placeholder="Masukkan nama jasa ...." required>
 
+
+
                     </div>
 
                     <div class="mb-3">
@@ -129,14 +131,15 @@
 
 <script>
     tinymce.init({
-        selector: '#detail_jasa',
-        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount',
-        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat',
-        height: 600,
+        selector: '#detail_jasa'
+        , plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount'
+        , toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | removeformat'
+        , height: 600,
 
     });
 
     // tinymce.activeEditor.setContent("Isi yang ingin Anda masukkan ke dalam TinyMCE");
+
 </script>
 
 
@@ -154,8 +157,8 @@
 
             $.ajax({
                 url: "/admin/jasa/get_jasa/" + dataId, // Ganti dengan URL yang sesuai
-                type: "GET",
-                success: function(response) {
+                type: "GET"
+                , success: function(response) {
                     // Response adalah data JSON yang dikirim oleh server
                     if (response.jasa) {
 
@@ -175,8 +178,8 @@
                     } else {
                         alert('Client not found');
                     }
-                },
-                error: function() {
+                }
+                , error: function() {
                     alert('Failed to fetch client data');
                 }
             });
@@ -194,6 +197,7 @@
 
         });
     });
+
 </script>
 
 <script>
@@ -208,6 +212,7 @@
             $("#add_jasa").attr("action", "/admin/jasa");
         });
     });
+
 </script>
 
 

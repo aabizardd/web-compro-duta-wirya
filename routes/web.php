@@ -103,12 +103,12 @@ Route::prefix('admin')->group(function () {
         Route::get('get_jasa/{id}', [JasaController::class, 'get_jasa'])->name('jasa.get_jasa');
     });
 
-    Route::prefix('bidang-client')->group(function () {
-        Route::get('/', [BidangClientController::class, 'index'])->name('bidang-client');
-        Route::post('/', [BidangClientController::class, 'store'])->name('bidang-client');
-        Route::get('hapus/{id}', [BidangClientController::class, 'destroy'])->name('bidang-client.hapus');
-        Route::post('update/{id}', [BidangClientController::class, 'update'])->name('bidang-client.update');
-    });
+    // Route::prefix('bidang-client')->group(function () {
+    //     Route::get('/', [BidangClientController::class, 'index'])->name('bidang-client');
+    //     Route::post('/', [BidangClientController::class, 'store'])->name('bidang-client');
+    //     Route::get('hapus/{id}', [BidangClientController::class, 'destroy'])->name('bidang-client.hapus');
+    //     Route::post('update/{id}', [BidangClientController::class, 'update'])->name('bidang-client.update');
+    // });
 
     Route::prefix('client')->group(function () {
         Route::get('/', [ClientController::class, 'index'])->name('client');

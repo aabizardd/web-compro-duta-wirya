@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\BidangClient;
 use App\Models\Client;
+use App\Models\Jasa;
 use Illuminate\Http\Request;
 
 class ClientController extends Controller
@@ -25,7 +26,7 @@ class ClientController extends Controller
             'title_body' => $page,
             'url' => 'Client / ' . $page,
             'client' => Client::get_client_all(),
-            'bidang_client' => BidangClient::all(),
+            'bidang_client' => Jasa::all(),
         ];
 
         return view("layouts.admin.pages.client-index", $data);
@@ -38,7 +39,7 @@ class ClientController extends Controller
 
         $data = [
             'pemberi_tugas' => $request->pemberi_tugas,
-            'id_bidang_client' => $request->id_bidang_client,
+            'id_jasa' => $request->id_bidang_client,
         ];
 
 
@@ -58,8 +59,13 @@ class ClientController extends Controller
 
     public function destroy($id)
     {
-        Client::where('id', $id)->delete();
+        $data = Client::find($id);
 
+        if (file_exists(public_path('assets/admin/assets/img/logo_client/' . $data->logo_client))) {
+            unlink(public_path('assets/admin/assets/img/logo_client/' . $data->logo_client));
+        }
+
+        $data->delete();
         return redirect()->back()->with(['success' => 'Data klien berhasil dihapus!']);
     }
 
@@ -83,7 +89,7 @@ class ClientController extends Controller
 
         $data = [
             'pemberi_tugas' => $request->pemberi_tugas,
-            'id_bidang_client' => $request->id_bidang_client,
+            'id_jasa' => $request->id_bidang_client,
         ];
 
         if ($request->hasFile('logo_client')) {

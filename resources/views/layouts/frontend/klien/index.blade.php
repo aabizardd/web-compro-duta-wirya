@@ -39,7 +39,7 @@ use App\Models\Client;
             <div class="col-lg-12">
                 <div class="section_title text_center mb-50 mt-3">
                     <div class="section_main_title">
-                        <h4>{{ $bc->nama_bidang }}</h4>
+                        <h4>{{ $bc->nama_jasa }}</h4>
                     </div>
                     <div class="em_bar">
                         <div class="em_bar_bg"></div>
@@ -52,7 +52,7 @@ use App\Models\Client;
         <div class="row">
 
             <?php
-            $client_list = Client::where('id_bidang_client', $bc->id)->get();
+            $client_list = Client::where('id_jasa', $bc->id)->get();
             ?>
 
             @foreach ($client_list as $cl)
@@ -60,7 +60,8 @@ use App\Models\Client;
             <div class="col-lg-4 col-md-4 col-sm-2">
                 <div class="single_brand mb-30">
                     <div class="single_brand_thumb">
-                        <img src="{{ asset('/') }}assets/admin/assets/img/logo_client/{{ $cl->logo_client }}" alt="" width="150" />
+                        <img src="{{ asset('/') }}assets/admin/assets/img/logo_client/{{ $cl->logo_client }}" alt=""
+                            width="150" />
                     </div>
                 </div>
             </div>
@@ -74,6 +75,8 @@ use App\Models\Client;
     </div>
 </div>
 @endforeach
+
+
 
 
 

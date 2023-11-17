@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\BidangClient;
 use App\Models\Jasa;
 use App\Models\KantorCabang;
 use Illuminate\Http\Request;
@@ -25,7 +26,8 @@ class JasaController extends Controller
             'title_url' => 'Admin PT. Duta Wirya - ' . $page,
             'title_body' => $page,
             'url' => $page,
-            'jasa' => Jasa::all()
+            'jasa' => Jasa::all(),
+            'client_bidang' => BidangClient::all(),
         ];
 
         return view("layouts.admin.pages.jasa-index", $data);

@@ -9,11 +9,13 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" />
+    <link rel="icon" type="image/png" sizes="56x56"
+        href="{{ asset('/') }}assets/admin/assets/img/logo dwpc bulat.png" />
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/bootstrap.min.css" type="text/css" media="all" />
     <!-- carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.carousel.min.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.carousel.min.css" type="text/css"
+        media="all" />
     <!-- nivo-slider CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/nivo-slider.css" type="text/css" media="all" />
     <!-- animate CSS -->
@@ -21,7 +23,8 @@
     <!-- animated-text CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/animated-text.css" type="text/css" media="all" />
     <!-- font-awesome CSS -->
-    <link type="text/css" rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/fonts/font-awesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet"
+        href="{{ asset('/') }}assets/fe/assets/fonts/font-awesome/css/font-awesome.min.css" />
     <!-- font-flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/flaticon.css" type="text/css" media="all" />
     <!-- theme-default CSS -->
@@ -31,7 +34,8 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/style.css" type="text/css" media="all" />
     <!-- transitions CSS -->
-    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.transitions.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.transitions.css" type="text/css"
+        media="all" />
     <!-- venobox CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/venobox/venobox.css" type="text/css" media="all" />
     <!-- widget CSS -->
@@ -71,26 +75,14 @@
                 <div class="col-lg-4 col-md-6 col-sm-12">
                     <div class="widget widgets-company-info">
                         <div class="footer-bottom-logo pb-40">
-                            <img src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" width="100" />
+                            <img src="{{ asset('/') }}assets/admin/assets/img/logo dwpc bulat.png" alt="" width="100" />
                         </div>
                         <div class="company-info-desc">
                             <p style="text-align: justify;">
                                 {!! substr(strip_tags($sejarah->sejarah), 0, 160) !!}
                             </p>
                         </div>
-                        <div class="follow-company-info pt-3">
-                            <div class="follow-company-text mr-3">
-                                <a href="#">
-                                    <p>Follow Us</p>
-                                </a>
-                            </div>
-                            <div class="follow-company-icon">
-                                <a href="#"><i class="fa fa-facebook"></i></a>
-                                <a href="#"><i class="fa fa-twitter"></i></a>
-                                <a href="#"><i class="fa fa-linkedin"></i></a>
-                                <a href="#"><i class="fa fa-skype"></i></a>
-                            </div>
-                        </div>
+
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-12">
@@ -99,13 +91,15 @@
                         <div class="menu-quick-link-container ml-4">
                             <ul id="menu-quick-link" class="menu">
                                 @foreach ($jasa as $key => $item)
-                                @if ($key < 5) <li><a href="{{ url('jasa') ."?jasa=". $item->id }}">{{ $item->nama_jasa }}</a></li>
+                                @if ($key < 5) <li><a
+                                        href="{{ url('jasa') ."?jasa=". $item->id }}">{{ $item->nama_jasa }}</a></li>
                                     @else
                                     @break
                                     @endif
                                     @endforeach
 
-                                    <li><a href="{{ url('jasa') }}">Selengkapnya <i class="fa fa-long-arrow-right"></i></a></li>
+                                    <li><a href="{{ url('jasa') }}">Selengkapnya <i
+                                                class="fa fa-long-arrow-right"></i></a></li>
 
                             </ul>
                         </div>
@@ -120,7 +114,7 @@
                                 Ki Mangunsarkoro No. 55, Nusukan, kota Surakarta, 57135</p>
                         </div>
                         <div class="footer-social-info">
-                            <p><i class="fa fa-phone"></i> <span>Phone :</span>(0271) 73594. Fax 714107</p>
+                            <p><i class="fa fa-phone"></i> <span>Phone :</span> (0271) 717910.</p>
                         </div>
                         <div class="footer-social-info">
                             <p><i class="fa fa-envelope"></i> <span>Email :</span>duta_wirya@yahoo.com</p>
@@ -187,6 +181,9 @@
     <script type="text/javascript" src="{{ asset('/') }}assets/fe/assets/js/theme.js"></script>
     <!-- jquery js -->
 </body>
+
+
+
 
 
 

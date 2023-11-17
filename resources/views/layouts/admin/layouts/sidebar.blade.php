@@ -3,7 +3,7 @@
 
     <center>
 
-        <img src="{{ asset('/') }}assets/admin/assets/img/logo dwpc.png" alt="" width="100">
+        <img src="{{ asset('/') }}assets/admin/assets/img/logo dwpc bulat.png" alt="" width="100">
     </center>
 
 
@@ -32,18 +32,11 @@
                 </nav>
             </div>
 
-            <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#clientDropdown" aria-expanded="false" aria-controls="clientDropdown">
-                <div class="sb-nav-link-icon"><i class="fas fa-info-circle"></i></div>
-                Client
-                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
-            </a>
 
-            <div class="collapse" id="clientDropdown" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
-                <nav class="sb-sidenav-menu-nested nav">
-                    <a class="nav-link" href="{{ route('bidang-client') }}">Daftar Bidang Client</a>
-                    <a class="nav-link" href="{{ route('client') }}">Daftar Client</a>
-                </nav>
-            </div>
+            <a class="nav-link" href="{{ route('client') }}">
+                <div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+                Daftar Client
+            </a>
 
 
 
@@ -69,55 +62,14 @@
             </a>
         </div>
     </div>
-    <div class="sb-sidenav-footer">
-        <div class="small">Logged in as:</div>
+    <div class="sb-sidenav-footer text-white">
 
 
 
 
+        <div class="small ">Logged in as:</div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        Start Bootstrap
+        Admin DWPC
     </div>
 </nav>

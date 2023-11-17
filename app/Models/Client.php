@@ -14,8 +14,8 @@ class Client extends Model
     public static function get_client_all()
     {
 
-        $details = Client::join('bidang_client', 'bidang_client.id', '=', 'client.id_bidang_client')
-            ->get(['client.pemberi_tugas', 'client.id', 'client.logo_client', 'bidang_client.nama_bidang']);
+        $details = Client::join('jasa', 'jasa.id', '=', 'client.id_jasa')
+            ->get(['client.pemberi_tugas', 'client.id', 'client.logo_client', 'jasa.nama_jasa']);
 
         return $details;
     }
@@ -23,9 +23,9 @@ class Client extends Model
     public static function get_client_by_id($id)
     {
 
-        $details = Client::join('bidang_client', 'bidang_client.id', '=', 'client.id_bidang_client')
+        $details = Client::join('jasa', 'jasa.id', '=', 'client.id_jasa')
             ->where('client.id', '=', $id)
-            ->get(['client.pemberi_tugas', 'client.id', 'client.logo_client', 'bidang_client.nama_bidang', 'client.id_bidang_client']);
+            ->get(['client.pemberi_tugas', 'client.id', 'client.logo_client', 'jasa.nama_jasa', 'client.id_jasa']);
 
         return $details;
     }

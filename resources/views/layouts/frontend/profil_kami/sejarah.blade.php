@@ -9,7 +9,7 @@
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="section_title text_left mb-40 mt-3">
                     <div class="section_sub_title uppercase mb-3">
-                        <h6>2 TAHUN BERPENGALAMAN</h6>
+                        <h6>30 TAHUN BERPENGALAMAN</h6>
                     </div>
                     <div class="section_main_title">
                         <h1>Mempersiapkan Kesuksesan Anda</h1>
