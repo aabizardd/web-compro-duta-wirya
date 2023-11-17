@@ -9,13 +9,11 @@
     <meta name="description" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="56x56"
-        href="{{ asset('/') }}assets/admin/assets/img/logo dwpc bulat.png" />
+    <link rel="icon" type="image/png" sizes="56x56" href="{{ asset('/') }}assets/admin/assets/img/logo dwpc bulat.png" />
     <!-- bootstrap CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/bootstrap.min.css" type="text/css" media="all" />
     <!-- carousel CSS -->
-    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.carousel.min.css" type="text/css"
-        media="all" />
+    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.carousel.min.css" type="text/css" media="all" />
     <!-- nivo-slider CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/nivo-slider.css" type="text/css" media="all" />
     <!-- animate CSS -->
@@ -23,8 +21,7 @@
     <!-- animated-text CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/animated-text.css" type="text/css" media="all" />
     <!-- font-awesome CSS -->
-    <link type="text/css" rel="stylesheet"
-        href="{{ asset('/') }}assets/fe/assets/fonts/font-awesome/css/font-awesome.min.css" />
+    <link type="text/css" rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/fonts/font-awesome/css/font-awesome.min.css" />
     <!-- font-flaticon CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/flaticon.css" type="text/css" media="all" />
     <!-- theme-default CSS -->
@@ -34,8 +31,7 @@
     <!-- Main Style CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/style.css" type="text/css" media="all" />
     <!-- transitions CSS -->
-    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.transitions.css" type="text/css"
-        media="all" />
+    <link rel="stylesheet" href="{{ asset('/') }}assets/fe/assets/css/owl.transitions.css" type="text/css" media="all" />
     <!-- venobox CSS -->
     <link rel="stylesheet" href="{{ asset('/') }}assets/fe/venobox/venobox.css" type="text/css" media="all" />
     <!-- widget CSS -->
@@ -50,7 +46,38 @@
 </head>
 
 <body>
+    <div class="header_top_menu pt-2 pb-2 bg_color">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-sm-8">
+                    <div class="header_top_menu_address">
+                        <div class="header_top_menu_address_inner">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-clock-o"></i>Senin-Jumat 09.00-16.00</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i>(0271) 717910</a></li>
+                                <li><a href="#"><i class="fa fa-envelope-o"></i>duta_wirya@yahoo.com</a></li>
 
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {{-- <div class="col-lg-4 col-sm-4">
+                    <div class="header_top_menu_icon">
+                        <div class="header_top_menu_icon_inner">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div> --}}
+
+            </div>
+        </div>
+    </div>
 
     @include('layouts.frontend.header')
 
@@ -79,7 +106,10 @@
                         </div>
                         <div class="company-info-desc">
                             <p style="text-align: justify;">
-                                {!! substr(strip_tags($sejarah->sejarah), 0, 160) !!}
+                                PT. Duta Wirya Pratama Centalestima disebut juga PT. Duta Wirya didirikan sejak tanggal
+                                2 September 1993, merupakan perusahaan yang bergerak dalam jasa konsultasi di bidang
+                                manajemen, industry, perdagangan, agrobisnis, riset pemasaran, analisa mengenai dampak
+                                lingkungan, penelitian dan data processing.
                             </p>
                         </div>
 
@@ -91,15 +121,13 @@
                         <div class="menu-quick-link-container ml-4">
                             <ul id="menu-quick-link" class="menu">
                                 @foreach ($jasa as $key => $item)
-                                @if ($key < 5) <li><a
-                                        href="{{ url('jasa') ."?jasa=". $item->id }}">{{ $item->nama_jasa }}</a></li>
+                                @if ($key < 5) <li><a href="{{ url('jasa') ."?jasa=". $item->id }}">{{ $item->nama_jasa }}</a></li>
                                     @else
                                     @break
                                     @endif
                                     @endforeach
 
-                                    <li><a href="{{ url('jasa') }}">Selengkapnya <i
-                                                class="fa fa-long-arrow-right"></i></a></li>
+                                    <li><a href="{{ url('jasa') }}">Selengkapnya <i class="fa fa-long-arrow-right"></i></a></li>
 
                             </ul>
                         </div>
@@ -181,6 +209,7 @@
     <script type="text/javascript" src="{{ asset('/') }}assets/fe/assets/js/theme.js"></script>
     <!-- jquery js -->
 </body>
+
 
 
 

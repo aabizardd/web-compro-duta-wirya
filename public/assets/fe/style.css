@@ -236,7 +236,7 @@ img.main_sticky {
 
 /*sticky*/
 .sticky .menu>ul>li a {
-    color: #fff;
+    color: #232323;
 }
 
 /* ––––––––––––––––––––––––––––––––––––––––––––––––––
@@ -335,7 +335,7 @@ html {
 }
 
 .transparent_menu .menu>ul>li a {
-    color: #fff;
+    color: black;
 }
 
 .transparent_menu.up .menu>ul>li a {
@@ -350,7 +350,7 @@ html {
     width: 100%;
     -webkit-box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
     box-shadow: 0 2px 5px -2px rgba(0, 0, 0, 0.1);
-    background: #00247e !important;
+    background: #fff !important;
     transition: .5s;
     z-index: 999;
     -webkit-animation: 300ms running fadeInDown;
@@ -408,7 +408,7 @@ html {
 
 /*style four*/
 .style-four.techno_nav_manu {
-    background: #1137C8;
+    background: #fff;
     height: 97px;
     z-index: 1;
 }
@@ -2465,7 +2465,7 @@ a.em-active-button:hover {
 <!-- Techno - Breatcome Area Css -->
 <!-- ============================================================== -->*/
 .breatcome_area {
-    /* background: url(assets/images/slider/slider-10.jpg); */
+    background: url(images/bg-breadcumb.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -2476,7 +2476,7 @@ a.em-active-button:hover {
 .breatcome_area:before {
     position: absolute;
     content: '';
-    background-image: linear-gradient(to right, rgba(12, 90, 219, 0.85), rgba(12, 90, 219, 0.80), rgba(18, 85, 194, 0.70), rgba(34, 86, 172, 0.75), rgba(38, 85, 163, 0.75));
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.47), rgba(71, 53, 86, 0.214));
     width: 100%;
     height: 100%;
     top: 0;

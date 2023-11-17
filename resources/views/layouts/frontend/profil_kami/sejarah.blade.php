@@ -12,7 +12,7 @@
                         <h6>30 TAHUN BERPENGALAMAN</h6>
                     </div>
                     <div class="section_main_title">
-                        <h1>Mempersiapkan Kesuksesan Anda</h1>
+
                         <h1>Sejarah PT Duta Wirya</span></h1>
                     </div>
                     <div class="em_bar">
