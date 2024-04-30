@@ -29,7 +29,7 @@ class FrontEndController extends Controller
             'kegiatan' => Kegiatan::all(),
             'sejarah' => Sejarah::first(),
             'jasa' => Jasa::take(3)->get(),
-            'client' => Client::all(),
+            'client' => Client::where('id_jasa', 1)->get(),
             'berita' => Berita::take(3)->get(),
         ];
 

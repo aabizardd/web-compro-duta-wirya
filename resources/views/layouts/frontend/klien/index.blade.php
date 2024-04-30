@@ -57,11 +57,10 @@ use App\Models\Client;
 
             @foreach ($client_list as $cl)
 
-            <div class="col-lg-4 col-md-4 col-sm-2">
+            <div class="col-lg-3 col-md-3 col-sm-2">
                 <div class="single_brand mb-30">
                     <div class="single_brand_thumb">
-                        <img src="{{ asset('/') }}assets/admin/assets/img/logo_client/{{ $cl->logo_client }}" alt=""
-                            width="150" />
+                        <img src="{{ asset('/') }}assets/admin/assets/img/logo_client/{{ $cl->logo_client }}" alt="" width="150" />
                     </div>
                 </div>
             </div>
